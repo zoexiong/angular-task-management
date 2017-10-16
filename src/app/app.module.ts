@@ -4,15 +4,32 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { ProjectListComponent } from './components/project-list/project-list.component';
+import { ProjectDetailComponent } from './components/project-detail/project-detail.component';
+import { TaskDetailComponent } from './components/task-detail/task-detail.component';
+import { ProjectListCardComponent } from './components/project-list-card/project-list-card.component';
+import { AddTaskComponent } from './components/add-task/add-task.component';
+import { AddProjectComponent } from './components/add-project/add-project.component';
+import { MemberDetailComponent } from './components/member-detail/member-detail.component';
+
+import { routing } from "./app.routes";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProjectListComponent,
+    ProjectDetailComponent,
+    TaskDetailComponent,
+    ProjectListCardComponent,
+    AddTaskComponent,
+    AddProjectComponent,
+    MemberDetailComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
