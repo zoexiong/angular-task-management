@@ -13,6 +13,7 @@ import { AddProjectComponent } from './components/add-project/add-project.compon
 import { MemberDetailComponent } from './components/member-detail/member-detail.component';
 
 import { routing } from "./app.routes";
+import { AddMemberComponent } from './components/add-member/add-member.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { routing } from "./app.routes";
     ProjectListCardComponent,
     AddTaskComponent,
     AddProjectComponent,
-    MemberDetailComponent
+    MemberDetailComponent,
+    AddMemberComponent
   ],
   imports: [
     BrowserModule,

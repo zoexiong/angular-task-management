@@ -2,7 +2,7 @@ import {Project} from "./models/project.model";
 
 export const PROJECTS: Project[] = [
   {
-    id:1,
+    id:3,
     title: "Paid",
     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntLorem ipsum",
     members: [
@@ -59,7 +59,7 @@ export const PROJECTS: Project[] = [
       }]
   },
   {
-    id:2,
+    id:6,
     title: "Core",
     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ",
     members: [
@@ -99,7 +99,7 @@ export const PROJECTS: Project[] = [
       }]
   },
   {
-    id:3,
+    id:2,
     title: "Publishing",
     desc: "Lorem ipsum dolor sit amet, consectetur ",
     members: []

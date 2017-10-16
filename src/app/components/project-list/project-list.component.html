@@ -1,5 +1,6 @@
+<head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></head>
+
 <div class="container">
-  <!--<app-new-problem></app-new-problem>-->
   <div class="list-group">
     <div class="list-group-item card" *ngFor="let project of projects" [routerLink]="['/projects', project.id]">
         <h4 class="card-name">{{project.title}}</h4>
