@@ -1,3 +1,15 @@
-<p>
-  project-list works!
-</p>
+<div class="container">
+  <!--<app-new-problem></app-new-problem>-->
+  <div class="list-group">
+    <div class="list-group-item card" *ngFor="let project of projects" [routerLink]="['/projects', project.id]">
+        <h4 class="card-name">{{project.title}}</h4>
+        <p class="card-detail">{{project.desc}}</p>
+        <p class="card-member">Total members: {{project.members.length}}</p>
+    </div>
+    <div class="card add-new card-new" (click)="toggleAddNew()">
+      <i class="fa fa-plus-circle" aria-hidden="true"></i>
+      <h4>Create New Project</h4>
+    </div>
+    <app-add-project *ngIf="addNew"></app-add-project>
+  </div>
+</div>
