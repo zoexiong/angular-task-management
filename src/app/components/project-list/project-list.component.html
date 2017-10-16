@@ -2,7 +2,7 @@
 
 <div class="container">
   <div class="list-group">
-    <div class="list-group-item card" *ngFor="let project of projects" [routerLink]="['/projects', project.id]">
+    <div class="list-group-item card" *ngFor="let project of projects; let i = index" [routerLink]="['/projects', i]">
         <h4 class="card-name">{{project.title}}</h4>
         <p class="card-detail">{{project.desc}}</p>
         <p class="card-member">Total members: {{project.members.length}}</p>
@@ -11,6 +11,50 @@
       <i class="fa fa-plus-circle" aria-hidden="true"></i>
       <h4>Create New Project</h4>
     </div>
-    <app-add-project *ngIf="addNew"></app-add-project>
+  </div>
+
+  <div class="modal" *ngIf="showModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" (click)="onClose()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title">Create Project</h4>
+        </div>
+        <div class="modal-body">
+
+          <div class="card-panel login-panel">
+            <form #f="ngForm" class="col s12" action="/" (ngSubmit)="onSubmit()">
+              <div class="row">
+                <div class="input-field">
+                  <label htmlFor='title'>Title (max 30 characters)</label>
+                  <br/>
+                  <input #textbox type="text" [(ngModel)]="title" class="form-control validate" id="title" maxLength="30" name="title" required>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <label htmlFor='description'>Description (max 100 characters)</label>
+                  <br/>
+                  <textarea ref-textarea [(ngModel)]="desc" class="form-control validate" rows="2" id="description" name="description" ></textarea>
+                  <br/>
+                </div>
+              </div>
+              <!--<Select-->
+              <!--name="select-members"-->
+              <!--value= {this.state.selectedMembers}-->
+              <!--options={CONSTS.OPTIONS}-->
+              <!--onChange={(val) => {this.props.onSelect(val); this.setState({selectedMembers: val})}}-->
+              <!--simpleValue={true}-->
+              <!--multi={true}-->
+              <!--/>-->
+              <input type="submit" class="btn-primary btn" value='Add'/>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
   </div>
 </div>

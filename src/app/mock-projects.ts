@@ -1,6 +1,6 @@
 import {Project} from "./models/project.model";
 
-export const PROJECTS: Project[] = [
+export var PROJECTS: Project[] = [
   {
     id:3,
     title: "Paid",

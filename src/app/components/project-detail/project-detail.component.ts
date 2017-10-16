@@ -3,11 +3,13 @@ import { Project } from '../../models/project.model';
 import { PROJECTS, STATUS } from "../../mock-projects";
 //get route params
 import { ActivatedRoute } from '@angular/router';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-project-detail',
   templateUrl: './project-detail.component.html',
-  styleUrls: ['./project-detail.component.css']
+  styleUrls: ['./project-detail.component.css'],
+  providers: [DataService]
 })
 export class ProjectDetailComponent implements OnInit {
 
@@ -18,11 +20,12 @@ export class ProjectDetailComponent implements OnInit {
   statusList = STATUS;
 
   constructor(
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    private dataService: DataService) {
   }
 
   getProject(id): void {
-    this.project = PROJECTS[id-1];
+    this.project = this.dataService.getProject(id);
     this.members = this.project.members;
   }
 

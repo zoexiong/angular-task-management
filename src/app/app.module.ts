@@ -9,11 +9,11 @@ import { ProjectDetailComponent } from './components/project-detail/project-deta
 import { TaskDetailComponent } from './components/task-detail/task-detail.component';
 import { ProjectListCardComponent } from './components/project-list-card/project-list-card.component';
 import { AddTaskComponent } from './components/add-task/add-task.component';
-import { AddProjectComponent } from './components/add-project/add-project.component';
 import { MemberDetailComponent } from './components/member-detail/member-detail.component';
 
 import { routing } from "./app.routes";
 import { AddMemberComponent } from './components/add-member/add-member.component';
+import { SimpleGlobal } from 'ng2-simple-global';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,6 @@ import { AddMemberComponent } from './components/add-member/add-member.component
     TaskDetailComponent,
     ProjectListCardComponent,
     AddTaskComponent,
-    AddProjectComponent,
     MemberDetailComponent,
     AddMemberComponent
   ],
@@ -33,7 +32,8 @@ import { AddMemberComponent } from './components/add-member/add-member.component
     HttpModule,
     routing
   ],
-  providers: [],
+  providers: [SimpleGlobal],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
