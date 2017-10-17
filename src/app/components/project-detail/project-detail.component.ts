@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../../services/data.service';
 import {SelectItem} from 'primeng/primeng';
 import _ from 'lodash';
+import { SortablejsOptions } from 'angular-sortablejs';
 
 @Component({
   selector: 'app-project-detail',
@@ -31,10 +32,23 @@ export class ProjectDetailComponent implements OnInit {
   selectedMembers: string[] = [];
   statusList: string[] = [];
 
+  options: SortablejsOptions = {
+  };
+
   constructor(
     private route: ActivatedRoute,
     private dataService: DataService) {
     this.status = STATUS_OPTIONS;
+    this.options = {
+      group: 'members',
+      onEnd: (event: any) => {
+        this.onDnd(event);
+      }
+    };
+  };
+
+  onDnd(evt): void {
+    this.dataService.updateProject(this.project, this.projectIndex);
   }
 
   getProject(id): void {

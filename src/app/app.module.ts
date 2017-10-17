@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 
 import {MultiSelectModule} from 'primeng/primeng';
 import {DropdownModule} from 'primeng/primeng';
+import {SortablejsModule} from 'angular-sortablejs';
 
 import { AppComponent } from './app.component';
 import { ProjectListComponent } from './components/project-list/project-list.component';
@@ -36,6 +37,7 @@ import { AddMemberComponent } from './components/add-member/add-member.component
     HttpModule,
     MultiSelectModule,
     DropdownModule,
+    SortablejsModule,
     routing
   ],
   providers: [],

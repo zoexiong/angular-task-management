@@ -16,6 +16,9 @@
 
 
 /*detail view*/
+.tasks-placeholder{
+  min-height:100px;
+}
 
 .tasks{
   width: 23%;

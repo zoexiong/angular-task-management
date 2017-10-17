@@ -1,23 +1,25 @@
 <div class="container">
 
-  <div class="tasks" *ngFor="let member of members; let memberIndex = index" [attr.member-index]="memberIndex">
+  <div class="tasks" *ngFor="let member of members; let memberIndex = index">
 
     <div class="task name">
       <h4>{{member.name}}</h4>
     </div>
 
-    <div class="task detail" *ngFor="let task of member.tasks; let i = index" [attr.task-index]="i" [ngStyle]="{borderLeft: '8px solid ' + getStyle(task.status)}">
-      <h5 class="task-title">{{task.title}}</h5>
-      <div class="btn-group">
-        <button type="button" [attr.botton-index]="i" class='btn dropdown-toggle status' [ngStyle]="{backgroundColor: getStyle(task.status)}" data-toggle="dropdown">
-          <p>{{task.status}}  <span class="caret"></span></p>
-        </button>
-        <ul class="dropdown-menu">
-          <!--{{getStatusOptions(i)}}-->
-          <li *ngFor="let status of statusList" (click)="changeStatus(memberIndex, i, status)"><a>{{status}}</a></li>
-        </ul>
+    <div class="tasks-placeholder" (change)="onEnd()" [sortablejs]="member.tasks" [sortablejsOptions]="options" [attr.member-index]="memberIndex">
+      <div class="task detail" *ngFor="let task of member.tasks; let i = index" [attr.task-index]="i" [ngStyle]="{borderLeft: '8px solid ' + getStyle(task.status)}">
+        <h5 class="task-title">{{task.title}}</h5>
+        <div class="btn-group">
+          <button type="button" [attr.botton-index]="i" class='btn dropdown-toggle status' [ngStyle]="{backgroundColor: getStyle(task.status)}" data-toggle="dropdown">
+            <p>{{task.status}}  <span class="caret"></span></p>
+          </button>
+          <ul class="dropdown-menu">
+            <!--{{getStatusOptions(i)}}-->
+            <li *ngFor="let status of statusList" (click)="changeStatus(memberIndex, i, status)"><a>{{status}}</a></li>
+          </ul>
+        </div>
+        <p class="task-description">{{task.desc}}</p>
       </div>
-      <p class="task-description">{{task.desc}}</p>
     </div>
 
     <div class="list-group-item task new-task add-new" (click)="toggleAddTask(memberIndex)">
