@@ -32,23 +32,23 @@
 
 /*responsive*/
 
-@media screen and (min-width: 1280px) {
-  .content-container {
-    min-width:3000px;
-  }
+/*@media screen and (min-width: 1280px) {*/
+  /*.content-container {*/
+    /*min-width:3000px;*/
+  /*}*/
 
-  .container {
-    min-width:3000px;
-  }
+  /*.container {*/
+    /*min-width:3000px;*/
+  /*}*/
 
-  .tasks {
-    max-width: 300px;
-  }
+  /*.tasks {*/
+    /*max-width: 300px;*/
+  /*}*/
 
-  .app-header {
-    min-width:3000px;
-  }
-}
+  /*.app-header {*/
+    /*min-width:3000px;*/
+  /*}*/
+/*}*/
 
 /*@media screen and (max-width: 960px) {*/
 /*.container {*/
