@@ -14,7 +14,7 @@
         </button>
         <ul class="dropdown-menu">
           <!--{{getStatusOptions(i)}}-->
-          <li *ngFor="let status of statusList"><a>{{status}}</a></li>
+          <li *ngFor="let status of statusList" (click)="changeStatus(memberIndex, i, status)"><a>{{status}}</a></li>
         </ul>
       </div>
       <p class="task-description">{{task.desc}}</p>

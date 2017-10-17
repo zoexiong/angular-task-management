@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from '../../models/project.model';
-import { OPTIONS, STATUS_OPTIONS } from "../../mock-projects";
+import { OPTIONS, STATUS_OPTIONS, STATUS } from "../../mock-projects";
 //get route params
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../../services/data.service';
@@ -29,6 +29,7 @@ export class ProjectDetailComponent implements OnInit {
 
   addNewMember: boolean = false;
   selectedMembers: string[] = [];
+  statusList: string[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -109,6 +110,12 @@ export class ProjectDetailComponent implements OnInit {
     return filteredOptions
   }
 
+  changeStatus(memberIndex, i, status): void {
+    this.project.members[memberIndex].tasks[i].status = status;
+    this.dataService.updateProject(this.project, this.projectIndex);
+    this.getProject(this.projectIndex);
+  }
+
 
   getStyle(status): string {
     var color = '';
@@ -126,21 +133,12 @@ export class ProjectDetailComponent implements OnInit {
     return color
   }
 
-  // getStatusOptions(taskIndex) {
-  //   return CONSTS.STATUS.map(function(status, i){
-  //     return(
-  //       // the index of the task will be added to the <li> element's onClick function
-  //       // we can then update the status of the task accordingly
-  //       <li key={i}><a onClick={(e) => {this.changeStatus(status, taskIndex)}}>{status}</a></li>
-  //     )
-  //   }, this);
-  // };
-
   ngOnInit() {
     this.route.params.subscribe(params => {
       // console.log('param is' + params['id']);
       this.projectIndex = params['id'];
       this.getProject(params['id']);
+      this.statusList = STATUS;
     });
   }
 }
