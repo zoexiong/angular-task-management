@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from '../../models/project.model';
-import { STATUS_OPTIONS } from "../../mock-projects";
+import { OPTIONS, STATUS_OPTIONS } from "../../mock-projects";
 //get route params
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../../services/data.service';
@@ -19,13 +19,16 @@ export class ProjectDetailComponent implements OnInit {
   projectIndex: number;
   members = [];
   memberIndex: number;
+  membersOptions = [];
 
   addNewTask: boolean = false;
-  addNewMember: boolean = false;
   title: string = '';
   desc: string = '';
   status: SelectItem[];
   selectedStatus: string = 'Done';
+
+  addNewMember: boolean = false;
+  selectedMembers: string[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -36,6 +39,7 @@ export class ProjectDetailComponent implements OnInit {
   getProject(id): void {
     this.project = this.dataService.getProject(id);
     this.members = this.project.members;
+    this.membersOptions = this.filterOptions(this.members, OPTIONS);
   }
 
   toggleAddTask(memberIndex): void {
@@ -67,6 +71,44 @@ export class ProjectDetailComponent implements OnInit {
   toggleAddMember(): void {
     this.addNewMember = !this.addNewMember;
   }
+
+  closeAddMember(): void {
+    this.addNewMember = false;
+  }
+
+  submitAddMember() {
+    if (this.selectedMembers) {
+      var members = this.selectedMembers.map(function(name) {
+        return(
+        {name: name, tasks: []}
+        );
+      });
+      //concat new selected members to the members list stored in state
+      members = this.members.concat(members);
+
+      let project = _.clone(this.project);
+      project.members = members;
+
+      this.project = project;
+      this.dataService.updateProject(this.project, this.projectIndex);
+      this.selectedMembers = [];
+      this.getProject(this.projectIndex);
+      this.addNewMember = false;
+    }
+  }
+
+  filterOptions(members, options) {
+    var names = [];
+    for (var i=0; i<members.length; i++) {
+      names.push(members[i].name);
+    }
+    options = options.slice();
+    var filteredOptions = options.filter(function(option) {
+      return names.indexOf(option.value) < 0;
+    });
+    return filteredOptions
+  }
+
 
   getStyle(status): string {
     var color = '';
@@ -101,7 +143,6 @@ export class ProjectDetailComponent implements OnInit {
       this.getProject(params['id']);
     });
   }
-
 }
 
 
