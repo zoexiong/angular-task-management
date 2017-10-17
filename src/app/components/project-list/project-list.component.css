@@ -24,6 +24,10 @@
   color: rgb(76,34,99);
 }
 
+.ui-multiselect-label {
+  min-width: 20em;
+}
+
 @media screen and (max-width: 1960px) {
   .list-group {
     padding:10px 10%;

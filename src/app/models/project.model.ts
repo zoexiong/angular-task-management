@@ -1,4 +1,4 @@
-class Task {
+export class Task {
   id: number;
   title: string;
   desc: string;
@@ -6,7 +6,7 @@ class Task {
 }
 
 class Member {
-  id: number;
+  //id: number;
   name: string;
   tasks: Task[];
 }

@@ -25,7 +25,7 @@
         <div class="modal-body">
 
           <div class="card-panel login-panel">
-            <form #f="ngForm" class="col s12" action="/" (ngSubmit)="onSubmit()">
+            <form #f="ngForm" name="addProjectForm" class="col s12" action="/" (ngSubmit)="onSubmit()">
               <div class="row">
                 <div class="input-field">
                   <label htmlFor='title'>Title (max 30 characters)</label>
@@ -41,15 +41,11 @@
                   <br/>
                 </div>
               </div>
-              <!--<Select-->
-              <!--name="select-members"-->
-              <!--value= {this.state.selectedMembers}-->
-              <!--options={CONSTS.OPTIONS}-->
-              <!--onChange={(val) => {this.props.onSelect(val); this.setState({selectedMembers: val})}}-->
-              <!--simpleValue={true}-->
-              <!--multi={true}-->
-              <!--/>-->
+
+              <p-multiSelect name="select" [options]="members" [(ngModel)]="selectedMembers" [panelStyle]="{minWidth:'20em'}"></p-multiSelect>
+              <br/>
               <input type="submit" class="btn-primary btn" value='Add'/>
+
             </form>
           </div>
 

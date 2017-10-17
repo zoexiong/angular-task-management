@@ -7,7 +7,7 @@ export var PROJECTS: Project[] = [
     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntLorem ipsum",
     members: [
       {
-        id: 1,
+        //id: 1,
         name: 'Lori Lane',
         tasks:[
           {
@@ -30,7 +30,7 @@ export var PROJECTS: Project[] = [
           }]
       },
       {
-        id:2,
+        //id:2,
         name: 'Robert Martinez',
         tasks: [
           {
@@ -47,7 +47,7 @@ export var PROJECTS: Project[] = [
           }]
       },
       {
-        id:3,
+        //id:3,
         name: 'Jennifer Lynch',
         tasks:[
           {
@@ -64,7 +64,7 @@ export var PROJECTS: Project[] = [
     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ",
     members: [
       {
-        id: 1,
+        //id: 1,
         name: 'Lori Lane',
         tasks:[
           {
@@ -87,7 +87,7 @@ export var PROJECTS: Project[] = [
           }]
       },
       {
-        id: 3,
+        //id: 3,
         name: 'Jennifer Lynch',
         tasks:[
           {

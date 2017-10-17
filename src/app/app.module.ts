@@ -1,7 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+
+import {MultiSelectModule} from 'primeng/primeng';
+import {DropdownModule} from 'primeng/primeng';
 
 import { AppComponent } from './app.component';
 import { ProjectListComponent } from './components/project-list/project-list.component';
@@ -13,7 +17,6 @@ import { MemberDetailComponent } from './components/member-detail/member-detail.
 
 import { routing } from "./app.routes";
 import { AddMemberComponent } from './components/add-member/add-member.component';
-import { SimpleGlobal } from 'ng2-simple-global';
 
 @NgModule({
   declarations: [
@@ -28,11 +31,14 @@ import { SimpleGlobal } from 'ng2-simple-global';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpModule,
+    MultiSelectModule,
+    DropdownModule,
     routing
   ],
-  providers: [SimpleGlobal],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

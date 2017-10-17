@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from '../../models/project.model';
-import { PROJECTS, STATUS } from "../../mock-projects";
+import { STATUS_OPTIONS } from "../../mock-projects";
 //get route params
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../../services/data.service';
+import {SelectItem} from 'primeng/primeng';
+import _ from 'lodash';
 
 @Component({
   selector: 'app-project-detail',
@@ -14,14 +16,21 @@ import { DataService } from '../../services/data.service';
 export class ProjectDetailComponent implements OnInit {
 
   project: Project;
+  projectIndex: number;
+  members = [];
+  memberIndex: number;
+
   addNewTask: boolean = false;
   addNewMember: boolean = false;
-  members = [];
-  statusList = STATUS;
+  title: string = '';
+  desc: string = '';
+  status: SelectItem[];
+  selectedStatus: string = 'Done';
 
   constructor(
     private route: ActivatedRoute,
     private dataService: DataService) {
+    this.status = STATUS_OPTIONS;
   }
 
   getProject(id): void {
@@ -29,8 +38,28 @@ export class ProjectDetailComponent implements OnInit {
     this.members = this.project.members;
   }
 
-  toggleAddTask(): void {
+  toggleAddTask(memberIndex): void {
+    this.memberIndex = memberIndex;
     this.addNewTask = !this.addNewTask;
+  }
+
+  onClose(){
+    this.addNewTask = false;
+  }
+
+  onSubmit() {
+    let project = _.clone(this.project);
+    let tasks = _.clone(this.project.members[this.memberIndex].tasks);
+    var id = tasks.length;
+    project.members[this.memberIndex].tasks = tasks.concat({
+      id: id,
+      title: this.title,
+      desc: this.desc,
+      status: this.selectedStatus
+    });
+    this.dataService.updateProject(project, this.projectIndex);
+    this.addNewTask = false;
+    this.getProject(this.projectIndex);
   }
 
   toggleAddMember(): void {
@@ -65,7 +94,8 @@ export class ProjectDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      console.log('param is' + params['id']);
+      // console.log('param is' + params['id']);
+      this.projectIndex = params['id'];
       this.getProject(params['id']);
     });
   }

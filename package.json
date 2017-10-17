@@ -24,8 +24,9 @@
     "@angular/platform-server": "^4.4.5-rc.2",
     "@angular/router": "^4.4.5-rc.2",
     "core-js": "^2.4.1",
+    "font-awesome": "^4.7.0",
     "lodash": "^4.17.4",
-    "ng2-simple-global": "^1.2.5",
+    "primeng": "^4.2.2",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4"
   },
