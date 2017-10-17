@@ -29,6 +29,6 @@ export class DataService {
   updateProject(project: Project, index: number): void {
     var projects = _.clone(JSON.parse(localStorage['projects']).data);
     projects[index] = project;
-    localStorage.setItem('projects', JSON.stringify({data: projects.concat(project)}));
+    localStorage.setItem('projects', JSON.stringify({data: projects}));
   }
 }

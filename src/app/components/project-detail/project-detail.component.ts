@@ -57,6 +57,8 @@ export class ProjectDetailComponent implements OnInit {
       desc: this.desc,
       status: this.selectedStatus
     });
+
+    console.log(this.projectIndex);
     this.dataService.updateProject(project, this.projectIndex);
     this.addNewTask = false;
     this.getProject(this.projectIndex);
