@@ -1,6 +1,7 @@
 import {Routes, RouterModule} from '@angular/router';
 import { ProjectListComponent } from './components/project-list/project-list.component';
 import { ProjectDetailComponent } from './components/project-detail/project-detail.component';
+import { AddMemberComponent } from './components/add-member/add-member.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path: "projects/:id",
     component: ProjectDetailComponent
+  },
+  {
+    path: 'test',
+    component: AddMemberComponent
   },
   {
     path: "**",
