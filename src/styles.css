@@ -1,5 +1,8 @@
-/*modal*/
+* {
+  font-family: 'Open Sans', sans-serif;
+}
 
+/*modal*/
 .modal {
   display: block;
 }

@@ -66,9 +66,6 @@
 
 /*for list items*/
 
-* {
-  font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
 
 .card {
   height: 12.5em;
@@ -78,7 +75,6 @@
   display: inline-block;
   vertical-align:top;
   text-align: left;
-  font-family: Lato;
   word-break: break-all;
 }
 
@@ -117,7 +113,6 @@
   height:5.5em;
   margin: 15px 0 0;
   color: gray;
-  font-family: "Helvetica", sans-serif;
   font-weight: 300;
   line-height: 150%;
   font-size: 13px;

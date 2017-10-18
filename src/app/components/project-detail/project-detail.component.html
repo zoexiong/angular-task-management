@@ -30,7 +30,7 @@
   </div>
 
   <div class="tasks">
-    <div class="task name add-new" (click)="toggleAddMember()">
+    <div class="task name add-new" [ngClass]="{'card-active': addNewMember }" (click)="toggleAddMember()">
       <h4>Add New Member</h4>
     </div>
   </div>
