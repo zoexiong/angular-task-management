@@ -72,7 +72,7 @@
 
 .card {
   height: 12.5em;
-  border: 2px solid whitesmoke;
+  border: 2px solid #eeeeee;
   padding:0 20px;
   background-color: white;
   display: inline-block;
@@ -80,6 +80,10 @@
   text-align: left;
   font-family: Lato;
   word-break: break-all;
+}
+
+.card:hover {
+  background-color: whitesmoke;
 }
 
 .card-new {
@@ -93,9 +97,10 @@
 .add-new {
   color: darkgray;
   text-align: center;
+  background-color: white !important;
 }
 
-.add-new:hover {
+.add-new:hover, .card-active {
   border: 2px solid rgb(76,34,99);
   color: rgb(76,34,99);
 }
@@ -199,22 +204,6 @@
   .card-name {
     margin: 10px 0;
   }
-}
-
-
-/*modal*/
-
-.modal {
-  display: block;
-  margin-top: 100px;
-}
-
-.modal-body{
-  padding: 10px 15px;
-}
-
-.input-field {
-  padding: 0 15px;
 }
 
 @media screen and (max-width: 960px) {

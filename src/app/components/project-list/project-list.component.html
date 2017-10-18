@@ -7,7 +7,7 @@
         <p class="card-detail">{{project.desc}}</p>
         <p class="card-member">Total members: {{project.members.length}}</p>
     </div>
-    <div class="card add-new card-new" (click)="toggleAddNew()">
+    <div class="card add-new card-new" (click)="toggleAddNew()" [ngClass]="{'card-active': showModal }">
       <i class="fa fa-plus-circle" aria-hidden="true"></i>
       <h4>Create New Project</h4>
     </div>
@@ -22,34 +22,35 @@
           </button>
           <h4 class="modal-title">Create Project</h4>
         </div>
-        <div class="modal-body">
 
-          <div class="card-panel login-panel">
-            <form #f="ngForm" name="addProjectForm" class="col s12" action="/" (ngSubmit)="onSubmit()">
-              <div class="row">
-                <div class="input-field">
-                  <label htmlFor='title'>Title (max 30 characters)</label>
-                  <br/>
-                  <input #textbox type="text" [(ngModel)]="title" class="form-control validate" id="title" maxLength="30" name="title" required>
-                </div>
+        <div class="card-panel login-panel modal-body">
+          <form #f="ngForm" name="addProjectForm" class="col s12" action="/" (ngSubmit)="onSubmit()">
+            <div class="row">
+              <div class="input-field">
+                <label htmlFor='title'>Title (max 30 characters)</label>
+                <br/>
+                <input #textbox type="text" [(ngModel)]="title" class="form-control validate" id="title" maxLength="30" name="title" required>
               </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <label htmlFor='description'>Description (max 100 characters)</label>
-                  <br/>
-                  <textarea ref-textarea [(ngModel)]="desc" class="form-control validate" rows="2" id="description" name="description" ></textarea>
-                  <br/>
-                </div>
+            </div>
+            <br/>
+            <div class="row">
+              <div class="input-field col s12">
+                <label htmlFor='description'>Description (max 100 characters)</label>
+                <br/>
+                <textarea ref-textarea [(ngModel)]="desc" class="form-control validate" rows="6" id="description" name="description" ></textarea>
+                <br/>
               </div>
-
-              <p-multiSelect name="select" [options]="members" [(ngModel)]="selectedMembers" [panelStyle]="{minWidth:'20em'}"></p-multiSelect>
-              <br/>
-              <input type="submit" class="btn-primary btn" value='Add'/>
-
-            </form>
-          </div>
-
+            </div>
+            <label htmlFor='members'>Members</label>
+            <br/>
+            <p-multiSelect name="select" [options]="members" [(ngModel)]="selectedMembers" [panelStyle]="{minWidth:'20em'}"></p-multiSelect>
+            <br/>
+          </form>
         </div>
+        <p class="modal-btn-group">
+          <button type="button" class="btn btn-secondary">Cancel</button>
+          <button type="button" class="btn-submit btn" (click)="onSubmit()">Submit</button>
+        </p>
       </div>
     </div>
   </div>

@@ -58,6 +58,7 @@ export class ProjectListComponent implements OnInit {
 
   toggleAddNew(): void {
     this.showModal = !this.showModal;
+
   }
 
 }

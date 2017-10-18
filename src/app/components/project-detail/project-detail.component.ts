@@ -41,6 +41,11 @@ export class ProjectDetailComponent implements OnInit {
     this.status = STATUS_OPTIONS;
     this.options = {
       group: 'members',
+      animation: 500,
+      ghostClass: "drop-placeholder",
+      chosenClass: "sortable-chosen",
+      scrollSpeed: 1, // px
+      delay: 100,
       onEnd: (event: any) => {
         this.onDnd(event);
       }

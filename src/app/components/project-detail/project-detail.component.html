@@ -14,11 +14,11 @@
             <p>{{task.status}}  <span class="caret"></span></p>
           </button>
           <ul class="dropdown-menu">
-            <!--{{getStatusOptions(i)}}-->
             <li *ngFor="let status of statusList" (click)="changeStatus(memberIndex, i, status)"><a>{{status}}</a></li>
           </ul>
         </div>
         <p class="task-description">{{task.desc}}</p>
+        <!--<p class="drop-here">Drop Here</p>-->
       </div>
     </div>
 
@@ -55,11 +55,12 @@
                   <input #textbox name="title" type="text" [(ngModel)]="title" class="form-control validate" id="title" maxLength="30" name="title" required>
                 </div>
               </div>
+              <br/>
               <div class="row">
                 <div class="input-field col s12">
                   <label htmlFor='description'>Description (max 100 characters)</label>
                   <br/>
-                  <textarea ref-textarea name="desc" [(ngModel)]="desc" class="form-control validate" rows="2" id="description" name="description" ></textarea>
+                  <textarea ref-textarea name="desc" [(ngModel)]="desc" class="form-control validate" rows="4" id="description" name="description" ></textarea>
                   <br/>
                 </div>
               </div>
