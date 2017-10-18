@@ -110,7 +110,7 @@ export var PROJECTS: Project[] = [
 export const MEMBERS = ['Lori Lane', 'Robert Martinez', 'Jennifer Lynch', 'Emily Howard', 'Jonathan Murphy', 'Ronald McCoy', 'Daniel Carter', 'Lauren Scott', 'Thomas Pena'];
 
 //list of task status options
-export const STATUS = ['Done', 'On Hold', 'In Process', 'Schedule', 'Sent'];
+export const STATUS = ['Schedule', 'In Process','On Hold', 'Sent', 'Done'];
 
 //list of member options compatible with react-select
 export const OPTIONS = MEMBERS.map(function(name) {

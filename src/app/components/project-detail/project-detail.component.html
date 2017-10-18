@@ -22,7 +22,7 @@
       </div>
     </div>
 
-    <div class="list-group-item task new-task add-new" (click)="toggleAddTask(memberIndex)">
+    <div class="list-group-item task new-task add-new" [ngClass]="{'card-active': cardActiveStatus(memberIndex) }" (click)="toggleAddTask(memberIndex)">
       <i class="fa fa-plus-circle" aria-hidden="true"></i>
       <h4>Create New Task</h4>
     </div>
@@ -42,38 +42,37 @@
           <button type="button" class="close" (click)="onClose()">
             <span aria-hidden="true">&times;</span>
           </button>
-          <h4 class="modal-title">Add New Task</h4>
+          <h4 class="modal-title">Create Task</h4>
         </div>
-        <div class="modal-body">
-
-          <div class="card-panel login-panel">
-            <form #f="ngForm" name="addTaskForm" class="col s12" action="/" (ngSubmit)="onSubmit()">
-              <div class="row">
-                <div class="input-field">
-                  <label htmlFor='title'>Title (max 30 characters)</label>
-                  <br/>
-                  <input #textbox name="title" type="text" [(ngModel)]="title" class="form-control validate" id="title" maxLength="30" name="title" required>
-                </div>
+        <div class="card-panel login-panel modal-body">
+          <form #f="ngForm" name="addTaskForm" class="col s12" action="/" (ngSubmit)="onSubmit()">
+            <div class="row">
+              <div class="input-field">
+                <label htmlFor='title'>Title (max 30 characters)</label>
+                <br/>
+                <input #textbox name="title" type="text" [ngModel]="title" (ngModelChange)="titleOnChange($event)" class="form-control validate" id="title" maxLength="30" name="title" required>
               </div>
-              <br/>
-              <div class="row">
-                <div class="input-field col s12">
-                  <label htmlFor='description'>Description (max 100 characters)</label>
-                  <br/>
-                  <textarea ref-textarea name="desc" [(ngModel)]="desc" class="form-control validate" rows="4" id="description" name="description" ></textarea>
-                  <br/>
-                </div>
+            </div>
+            <br/>
+            <div class="row">
+              <div class="input-field col s12">
+                <label htmlFor='description'>Description (max 100 characters)</label>
+                <br/>
+                <textarea ref-textarea name="desc" [ngModel]="desc" (ngModelChange)="descOnChange($event)" class="form-control validate" rows="4" id="description" name="description" ></textarea>
+                <br/>
               </div>
-
-              <p-dropdown name="status" [options]="status" [(ngModel)]="selectedStatus"></p-dropdown>
-              <br/>
-              <input type="submit" class="btn-primary btn" value='Add'/>
-
-            </form>
-          </div>
-
+            </div>
+            <label htmlFor='status'>Status</label>
+            <br/>
+            <p-dropdown name="status" [options]="status" [(ngModel)]="selectedStatus"></p-dropdown>
+            <br/>
+          </form>
         </div>
-      </div>
+        <p class="modal-btn-group">
+          <button type="button" class="btn btn-secondary" (click)="onClose()">Cancel</button>
+          <button type="button" class="btn-submit btn" (click)="onSubmit()" [disabled]="submitDisabled">Create</button>
+        </p>
+        </div>
     </div>
   </div>
 
@@ -87,11 +86,13 @@
           <h4 class="modal-title">Select New Member</h4>
         </div>
         <div class="modal-body">
-
-          <p-multiSelect name="selectMembers" [options]="membersOptions" [(ngModel)]="selectedMembers" [panelStyle]="{minWidth:'20em'}"></p-multiSelect>
-
-          <button class="btn-primary btn" (click)="submitAddMember()">Submit</button>
+          <br/>
+          <p-multiSelect name="selectMembers" [options]="membersOptions" selectedItemsLabel="{0} members selected" [(ngModel)]="selectedMembers" [panelStyle]="{minWidth:'20em'}"></p-multiSelect>
         </div>
+        <p class="modal-btn-group">
+          <button type="button" class="btn btn-secondary" (click)="closeAddMember()">Cancel</button>
+          <button class="btn-submit btn" (click)="submitAddMember()">Submit</button>
+        </p>
       </div>
     </div>
   </div>

@@ -18,13 +18,12 @@ export class ProjectListComponent implements OnInit {
   showModal: boolean = false;
   title: string = '';
   desc: string = '';
-
   members: SelectItem[];
   selectedMembers: string[];
+  submitDisabled: boolean = true;
 
   constructor(private dataService: DataService) {
     this.members = OPTIONS;
-    //console.log(this.members);
   }
 
   ngOnInit() {
@@ -33,6 +32,24 @@ export class ProjectListComponent implements OnInit {
 
   onClose(){
     this.showModal = false;
+  }
+
+  descOnChange(value) {
+    this.desc = value;
+    this.onChange();
+  }
+
+  titleOnChange(value) {
+    this.title = value;
+    this.onChange();
+  }
+
+  onChange(): void {
+    if (this.title != "" && this.desc != ""){
+      this.submitDisabled = false;
+    } else {
+      this.submitDisabled = true;
+    }
   }
 
   onSubmit() {

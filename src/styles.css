@@ -15,11 +15,19 @@
   border-bottom: 1px solid #e5e5e5;
 }
 
+.modal-title {
+  text-align: left !important;
+}
+
+label {
+  font-weight: 500;
+}
+
 .input-field {
   padding: 0 15px;
 }
 
-.ui-multiselect, .ui-multiselect-label {
+.ui-multiselect, .ui-multiselect-label, .ui-dropdown {
   width: 24.5em !important;
 }
 
@@ -35,8 +43,17 @@
 .btn-submit {
   background-color: rgb(76,34,99);
   border-radius: 20px;
-  padding: 10px 20px;
+  padding: 10px 20px !important;
   color: white;
+}
+
+.btn-submit:hover {
+  color:white;
+  opacity: 0.8;
+}
+
+.btn-submit:disabled {
+  background-color: darkgray;
 }
 
 .btn-secondary {
@@ -54,7 +71,7 @@
     width:360px;
   }
 
-  .ui-multiselect, .ui-multiselect-label {
+  .ui-multiselect, .ui-multiselect-label, .ui-dropdown {
     width: 21.6em !important;
   }
 }

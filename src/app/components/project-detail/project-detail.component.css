@@ -115,8 +115,8 @@
   text-align: center;
 }
 
-.add-new:hover {
-  border: 2px solid rgb(76,34,99);
+.add-new:hover, .card-active {
+  border: 2px solid rgb(76,34,99) !important;
   color: rgb(76,34,99);
 }
 

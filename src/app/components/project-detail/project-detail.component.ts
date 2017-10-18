@@ -26,7 +26,8 @@ export class ProjectDetailComponent implements OnInit {
   title: string = '';
   desc: string = '';
   status: SelectItem[];
-  selectedStatus: string = 'Done';
+  selectedStatus: string = 'Schedule';
+  submitDisabled: boolean = true;
 
   addNewMember: boolean = false;
   selectedMembers: string[] = [];
@@ -67,8 +68,31 @@ export class ProjectDetailComponent implements OnInit {
     this.addNewTask = !this.addNewTask;
   }
 
+  //when user click "add new task" card, only the clicked one will change to hover style
+  cardActiveStatus(memberIndex): boolean {
+    return (memberIndex === this.memberIndex && this.addNewTask);
+  }
+
   onClose(){
     this.addNewTask = false;
+  }
+
+  descOnChange(value) {
+    this.desc = value;
+    this.onChange();
+  }
+
+  titleOnChange(value) {
+    this.title = value;
+    this.onChange();
+  }
+
+  onChange(): void {
+    if (this.title != "" && this.desc != ""){
+      this.submitDisabled = false;
+    } else {
+      this.submitDisabled = true;
+    }
   }
 
   onSubmit() {
