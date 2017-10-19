@@ -43,8 +43,9 @@ export class ProjectDetailComponent implements OnInit {
     this.options = {
       group: 'members',
       animation: 500,
-      ghostClass: "drop-placeholder",
+      ghostClass: "sortable-ghost",
       chosenClass: "sortable-chosen",
+      dragClass: "sortable-drag",
       scrollSpeed: 1, // px
       delay: 100,
       onEnd: (event: any) => {
