@@ -89,6 +89,27 @@
   font-size: 0.8em;
 }
 
+.dropdown-menu {
+  padding: 0;
+}
+
+.dropdown-menu li {
+  padding:10px 5px;
+  font-size: 0.8em;
+}
+
+.dropdown-menu *:hover {
+  background-color: rgb(76,34,99) !important;
+  color: white;
+}
+
+.btn-group.show .caret {
+  transform:rotate(180deg);
+  -ms-transform:rotate(180deg); 	/* IE 9 */
+  -moz-transform:rotate(180deg); 	/* Firefox */
+  -webkit-transform:rotate(180deg); /* Safari & Chrome */
+  -o-transform:rotate(180deg);
+}
 
 .name {
   height: 6em;
