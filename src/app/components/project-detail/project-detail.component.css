@@ -10,10 +10,6 @@
   box-shadow: none !important;
 }
 
-.sortable-chosen {
-
-}
-
 .sortable-drag > .task {
   -webkit-box-shadow:2px 3px 5px #aaaaaa;
 }
@@ -91,10 +87,10 @@
   font-size: 0.8em;
 }
 
-/*.tasks-placeholder > .task-wrapper {*/
-  /*z-index: 1;*/
-  /*position: relative;*/
-/*}*/
+.sortable-chosen, .sortable-ghost, .sortable-drag {
+  z-index: 999;
+  position: relative;
+}
 
 .dropdown-menu {
   margin: 0;
