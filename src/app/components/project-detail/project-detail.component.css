@@ -23,7 +23,9 @@
   margin:30px -5px 20px 5px;
 }
 
+
 /*detail view*/
+
 .tasks-placeholder{
   min-height:100px;
 }
@@ -89,7 +91,13 @@
   font-size: 0.8em;
 }
 
+/*.tasks-placeholder > .task-wrapper {*/
+  /*z-index: 1;*/
+  /*position: relative;*/
+/*}*/
+
 .dropdown-menu {
+  margin: 0;
   padding: 0;
 }
 
@@ -98,9 +106,14 @@
   font-size: 0.8em;
 }
 
-.dropdown-menu *:hover {
-  background-color: rgb(76,34,99) !important;
+.dropdown-menu li:hover {
+  background-color: rgb(76,34,99);
   color: white;
+}
+
+.dropdown-menu li a {
+  color: inherit;
+  background-color: inherit;
 }
 
 .btn-group.show .caret {
