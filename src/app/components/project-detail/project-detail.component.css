@@ -19,11 +19,15 @@
   margin:30px -5px 20px 5px;
 }
 
-
 /*detail view*/
 
 .tasks-placeholder{
   min-height:100px;
+}
+
+.tasks-placeholder > .task-wrapper:hover {
+  z-index: 1;
+  position: relative;
 }
 
 .tasks{
@@ -85,11 +89,6 @@
   margin-top: -6px;
   color: white;
   font-size: 0.8em;
-}
-
-.sortable-chosen, .sortable-ghost, .sortable-drag {
-  z-index: 999;
-  position: relative;
 }
 
 .dropdown-menu {
